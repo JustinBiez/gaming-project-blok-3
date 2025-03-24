@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap');
+
+html, body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.filters select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.result-count {
+    color: #666;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.game-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.game-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.game-card.mouse-tracking {
+    transition: transform 0.1s;
+}
+
+.game-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.game-card h2 {
+    margin: 10px;
+    font-size: 1.2em;
+}
+
+.game-card p {
+    margin: 5px 10px;
+    color: #666;
+}
+
+.font-small {
+    font-size: 14px;
+}
+
+.font-normal {
+    font-size: 16px;
+}
+
+.font-large {
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: column;
+    }
+    
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+/* game page styles */
+.back-button {
+    margin-bottom: 20px;
+}
+
+.back-button a {
+    text-decoration: none;
+    color: #666;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.back-button a:hover {
+    color: #333;
+}
+
+.game-details {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.game-header {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.game-header img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.game-info h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.game-info p {
+    margin: 10px 0;
+    font-size: 1.1em;
+    color: #666;
+}
+
+.game-description {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.game-description h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.game-description p {
+    line-height: 1.6;
+    color: #444;
+}
+
+@media (max-width: 768px) {
+    .game-header {
+        grid-template-columns: 1fr;
+    }
+    
+    .game-header img {
+        height: 300px;
+    }
+}

@@ -1,10 +1,12 @@
 <?php
+
 require 'database.php';
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-$sql = "SELECT * FROM games WHERE id = " . mysqli_real_escape_string($conn, $id);
+$sql = "SELECT * FROM games WHERE id = " . $id;
 $result = mysqli_query($conn, $sql);
 
+# als er GEEN DATA is, ga naar index.php 
 if (!$result || mysqli_num_rows($result) === 0) {
     header('Location: index.php');
     exit;
@@ -20,6 +22,7 @@ $font_size = $_GET['font_size'] ?? 'normal';
     <title><?php echo htmlspecialchars($game['titel']); ?> - Game Details</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 
 <body class="font-<?php echo htmlspecialchars($font_size); ?>">
     <div class="container">

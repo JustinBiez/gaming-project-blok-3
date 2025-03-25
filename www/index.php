@@ -1,4 +1,5 @@
 <?php
+
 require 'database.php';
 
 $platform = $_GET['platform'] ?? '';
@@ -6,7 +7,7 @@ $genre = $_GET['genre'] ?? '';
 $sort = $_GET['sort'] ?? '';
 $font_size = $_GET['font_size'] ?? 'normal';
 
-$sql = 'SELECT * FROM games WHERE 1=1';
+$sql = 'SELECT * FROM games';
 if ($platform) $sql .= " AND platform = '" . $platform . "'";
 if ($genre) $sql .= " AND genre = '" . $genre . "'";
 if ($sort === 'price_asc') $sql .= ' ORDER BY prijs ASC';
@@ -26,13 +27,14 @@ $genres = mysqli_query($conn, 'SELECT DISTINCT genre FROM games ORDER BY genre')
     <link rel="stylesheet" href="style.css?v="<?php echo time(); ?>>
 </head>
 
+
 <body class="font-<?php echo htmlspecialchars($font_size); ?>">
     <div class="container">
         <h1>GAMES LIBRARY</h1>
         
         <div class="controls">
             <form method="get" class="filters" id="filterForm">
-                <select name="platform" onchange="this.form.submit()">
+                <select name="platform" onchange="this.form.submit()"> <!--dit zorgt ervoor dat het automatisch wordt aangepast, handig-->
                     <option value="">All Platforms</option>
                     <?php while ($p = mysqli_fetch_assoc($platforms)): ?>
                         <option value="<?php echo htmlspecialchars($p['platform']); ?>"
@@ -83,6 +85,7 @@ $genres = mysqli_query($conn, 'SELECT DISTINCT genre FROM games ORDER BY genre')
         </div>
     </div>
     <script>
+        // mouse mouse mouse mouse tracking effect
         document.querySelectorAll('.game-card').forEach(card => {
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();

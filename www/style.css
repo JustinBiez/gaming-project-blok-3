@@ -165,7 +165,7 @@ html, body {
 }
 
 @media (max-width: 768px) {
-    .game-header {
+    .header {
         grid-template-columns: 1fr;
     }
     

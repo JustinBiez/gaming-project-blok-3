@@ -31,7 +31,8 @@ $font_size = $_GET['font_size'] ?? 'normal';
         </div>
 
         <div class="game-details">
-            <div class="game-header">
+            
+                <header>
                 <img src="<?php echo htmlspecialchars("img/" . $game['thumbnail_url']); ?>" 
                      alt="<?php echo htmlspecialchars($game['titel']); ?>">
                 <div class="game-info">
@@ -42,7 +43,8 @@ $font_size = $_GET['font_size'] ?? 'normal';
                     <p class="release-date">Release Date: <?php echo date('F j, Y', strtotime($game['releasedate'])); ?></p>
                     <p class="price">Prijs: €<?php echo number_format($game['prijs'], 2); ?></p>
                 </div>
-            </div>
+                </header>
+           
 
             <div class="game-description">
                 <h2>Beschrijving</h2>
